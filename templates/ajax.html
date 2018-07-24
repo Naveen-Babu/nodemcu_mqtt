@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+ <html lang="en">
+ 
+ <head>
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content="">
+     <meta name="author" content="">
+     <link rel="icon" href="../../favicon.ico">
+ 
+     <title>Signin Template for Bootstrap </title>
+ 
+     <!-- Bootstrap core CSS -->
+     <link href="static/css/bootstrap.min.css" rel="stylesheet">
+ 
+     <!-- Custom styles for this template -->
+     <link href="static/css/signin.css" rel="stylesheet">
+ 
+     <script src="static/js/jquery-1.9.0.js"> </script>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+ </head>
+ 
+ <body>
+ 
+        <script >
+
+            $(function(){
+                    $('#publish').click(function(){
+                        alert("Inside");
+                        var topic = $('#topic').val();
+                        var msg = $('#message').val();
+                        $.ajax({
+                            url: '/publish',
+                            data: {"Topic" : topic, "Message" : msg},
+                            type: 'POST',
+                            dataType: "json",
+                            success: function(response){
+                                console.log(response);
+                                alert("success");
+                            },
+                            error: function(error){
+                                console.log(error);
+                                alert(error)
+                            }
+                        });
+                    }); 
+
+           //s$(function(){
+                    $('#subscribe').click(function(){
+                        alert("Inside");
+                        var topic_subscribe = $('#topic_1').val();
+                       //var msg = $('#message').val()
+                        $.ajax({
+                            url: '/subscribe',
+                            data: {"Topic_Subscribe" : topic_subscribe},
+                            type: 'POST',
+                            dataType: "json",
+                            success: function(response){
+                                console.log(response);
+                                alert("success");
+                            },
+                            error: function(error){
+                                console.log(error);
+                                alert(error)
+                            }
+                        });
+                    });
+
+
+            });
+
+          </script>
+
+
+    <script>
+
+    $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+                    (function(){
+                        $.getJSON(
+                            $SCRIPT_ROOT+"/dummy", // Your AJAX route here
+                            function(data) {
+                                //console.log(data.tmp)
+                                //alert(data.tmp)
+                                document.getElementById("sen1").innerHTML = data.topic;
+                                document.getElementById("sen2").innerHTML = data.msg; 
+                            
+                            }
+                        );
+                        setTimeout(arguments.callee, 2000);
+                    })();
+
+    </script>
+    
+    
+    
+    
+    
+    
+            <form class="form-signin"  role="form">
+                    <h2 class="form-signin-heading">Please Sign Up</h2>
+                    <input type="text" id="topic"  class="form-control" placeholder="topic" required autofocus>
+                    <input type="text" id="message" class="form-control" placeholder="message" required>       
+                     <button id = "publish" class="btn btn-lg btn-primary btn-block" type="button">Publish</button><br>
+
+                   <br><input type="text" id= "topic_1"  class= "form-control" placeholder= "topic_subscribe" required autofocus>
+                    <button id = "subscribe" class="btn btn-lg btn-primary btn-block" type="button">Subscribe</button>
+            </form> 
+   
+ </body>
+ 
+ </html>

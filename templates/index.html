@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+     <!--meta http-equiv="refresh" content="5" /-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Home Automation</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <!--link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet"-->
+    <!--link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"-->
+     <link href="../static/css/plugins/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Waves Effect Css -->
+    <!--link href="plugins/node-waves/waves.css" rel="stylesheet" /-->
+    <!--link href="https://cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.5/waves.min.css" rel="stylesheet"-->
+     <link href="../static/css/plugins/waves.min.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <!--link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" -->
+    <link href="../static/css/plugins/animate.min.css" rel="stylesheet" />
+
+
+    <!-- Morris Chart Css-->
+    <!--link href="plugins/morrisjs/morris.css" rel="stylesheet" /-->
+
+    <!-- Custom Css -->
+    <link href="../static/css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../static/css/all-themes.css" rel="stylesheet" />
+
+    <!--Liquid Fill Js Library-->
+    
+ <script src="../static/js/plugins/d3.v3.min.js" language="JavaScript"></script>
+ <script src="../static/js/liquidFillGauge.js" language="JavaScript"></script>
+
+     <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script-->
+
+     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+
+
+</head>
+
+<body class="theme-teal">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand">Automated Water Tank Level Monitoring System</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Call Search -->
+                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+    
+                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="../static/user.png" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SRKREC</div>
+                    <div class="email">srkrec@edu.in</div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <!--li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li role="seperator" class="divider"></li-->
+                            <!--li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li-->
+                            <!--li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                            <li role="seperator" class="divider"></li-->
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="active">
+                        <a href= {{ url_for('new_page',page = "pavan")}}>
+                            <i class="material-icons">home</i>
+                            <span>Home</span>
+                        </a>
+                        <a href= {{ url_for('new_page',page = "pavan1")}}>
+                            <i class="material-icons">home</i>
+                            <span>Page1</span>
+                        </a>
+                        <a href= {{ url_for('new_page',page = "pavan2")}}>
+                            <i class="material-icons">home</i>
+                            <span>Page2</span>
+                        </a>
+                    </li>
+                    </ul>
+
+
+            </div>
+            
+        </aside>
+       
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2></h2>
+            </div>
+
+            <!-- Widgets-->
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="info-box bg-pink hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">playlist_add_check</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Last switched on time</div>
+                            <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="info-box bg-cyan hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">playlist_add_check</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Last switched off time</div>
+                            <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <!-- #END# Widgets -->
+            <!-- CPU Usage -->
+            <div class="row clearfix">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="card">
+                        <div class="header" style="border-color:#3D776A" >
+                            <div class="row clearfix">
+                                <div class="col-xs-6 col-sm-6 align-center" >
+                                    <!--h2>Water Tank Level (%)</h2-->
+                                    <div id = "demo" class="text" style="font-size: 45px;margin-top: 1px;
+                                                            color: #009688;">Data</div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 align-right">
+                                    <div class="switch panel-switch-btn" style="top: 16px">
+                                        <span class="m-r-10 font-12">Motor</span>
+                                        <input id="toggle-event" type="checkbox" data-toggle="toggle">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                              
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 align-center">
+                                    <canvas id = "Circle" class="dashboard-flot-chart" width="300px" height="300px"></canvas>
+                              </div>
+                        </div>
+                    </div>
+       
+               </div>
+
+               <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="card">
+                        <div class="header" style="border-color:#3D776A" >
+                            <div class="row clearfix">
+                                <div class="col-xs-6 col-sm-6 align-center" >
+                                    <!--h2>Water Tank Level (%)</h2-->
+                                    <div id = "demo" class="text" style="font-size: 45px;margin-top: 1px;
+                                                            color: #009688;">Automation</div>
+                                </div>
+                                <!--div class="col-xs-6 col-sm-6 align-right">
+                                    <div class="switch panel-switch-btn" style="top: 16px">
+                                        <span class="m-r-10 font-12">Motor</span>
+                                        <input id="toggle-event" type="checkbox" data-toggle="toggle">
+                                    </div>
+                                </div-->
+                            </div>
+                        </div>
+                        <div class="row clearfix">                              
+                              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 align-left">
+                                    <!--canvas id = "Circle" class="dashboard-flot-chart" width="300px" height="300px"></canvas-->
+                              
+                                <h4>AC <input id="AC" type="checkbox" data-toggle="toggle"></h4>
+                                <h4>Refridgerator <input id="RF" type="checkbox" data-toggle="toggle"></h4>
+                                <h4>Geyser <input id="GS" type="checkbox" data-toggle="toggle"></h4>
+                                <h4>Light 1 <input id="L1" type="checkbox" data-toggle="toggle"></h4>
+                                <h4>Light 2 <input id="L2" type="checkbox" data-toggle="toggle"></h4>
+
+                                <p>Temperature: <span id = "tmp">temperature</span></p>
+                                <p>Humidity: <span id = "hum">humidity</span></p>
+                            </div>        
+                        </div>
+                    </div>
+       
+               </div>
+            </div>
+            <!-- #END# CPU Usage -->
+
+        </div>
+    </section>
+
+    <!-- Jquery Core Js -->
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script-->
+     <script src = "../static/js/plugins/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <!--script- src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
+     <script src = "../static/js/plugins/bootstrap.min.js"></script>
+
+    <!-- Select Plugin Js -->
+    <!--script- src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script-->
+     <script src = "../static/js/plugins/bootstrap-select.min.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.8/jquery.slimscroll.min.js"></script-->
+     <script src = "../static/js/plugins/jquery.slimscroll.min.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.5/waves.min.js"></script-->
+     <script src = "../static/js/plugins/waves.min.js"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-countto/1.2.0/jquery.countTo.min.js"></script-->
+    <script src = "../static/js/plugins/jquery.countTo.min.js"></script>
+
+    
+    <script src="../static/js/admin.js"></script>
+    <script src="../static/js/index.js"></script>
+
+     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+    <!-- Demo Js -->
+
+ 
+
+        <script>
+
+                var canvas = document.getElementById('Circle');
+                                var context = canvas.getContext('2d');
+                                var centerX = canvas.width / 2;
+                                var centerY = canvas.height / 2;
+                                var radius = canvas.height/2.1;
+                                var linewidth = 5;
+                    
+
+                                //var full = radius*2;
+
+                                //onsole.log(data);
+                                
+
+                                context.fillStyle = '#fff';
+                                context.fillRect( 0, 0, canvas.width, canvas.height );
+
+                                context.arc( canvas.width / 2, canvas.height / 2, radius, 0, 2 * Math.PI, false );
+                                context.lineWidth = linewidth;
+                                context.strokeStyle = '#2D403C';
+                                context.stroke();
+
+
+                                function draw(x){
+                                        //alert(x);
+                                        console.log("Level value is: " + x);
+                                        // make a circular clipping region                                          
+                                        context.beginPath();
+                                        context.arc( canvas.width / 2, canvas.height / 2, radius-(linewidth/2), 0, 2 * Math.PI, false );
+                                        context.clip();
+
+                                        // draw the current rectangle
+                                        //var height = ((100-current)*radius*2)/100 + (canvas.height-(radius*2))/2;
+                                        //var height = 50 + x;
+                                        var startingPoint = (canvas.height + (radius*2))/2;
+                                        var newheight = (2 * radius * x)/100;
+                                        context.fillStyle = '#64F2CB';
+                                        context.clearRect(0, 0, canvas.width, canvas.height);
+                                        context.fillRect( 0, startingPoint, canvas.width, -newheight );
+                                }
+
+
+                $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+                    (function(){
+                        $.getJSON(
+                            $SCRIPT_ROOT+"/dummy", // Your AJAX route here
+                            function(data) {
+                                //alert(data.level);
+                                document.getElementById("demo").innerHTML = data.level;
+                                document.getElementById("tmp").innerHTML = data.temp;
+                                document.getElementById("hum").innerHTML = data.hum;
+                                draw(data.level);
+                               
+                            }
+                        );
+                        setTimeout(arguments.callee, 2000);
+                    })();
+
+
+                     
+            
+        </script>
+
+
+        <script>  
+                $(function() {
+
+                    if({{mStatus}}){
+                    $('#toggle-event').bootstrapToggle('on');
+                  }
+
+
+                    $('#toggle-event').change(function() {
+                       // {{ url_for('checkbox') }}
+                       //$('#console-event').html('Toggle: ' + $(this).prop('checked'));
+                       let state1 = $(this).prop('checked');
+                       /*$.getJSON('/lastValue.json', function(data) {
+                                    console.log(data);
+                        });*/
+ 
+                        $.ajax({
+                                type: "POST",
+                                url: "getCheckBox",
+                                data: {'state':state1},
+                                cache: false,
+                                success: function(data){
+                                    //alert(data);
+                                }
+                                });
+
+                    
+                    })
+                })
+        </script>
+
+
+        <!--HomeAutomation script goes here-->
+
+        <script>  
+
+                $(function() {
+                   
+                  if({{AC}}){
+                    $('#AC').bootstrapToggle('on')
+                  }
+                  if({{GS}}){
+                    $('#GS').bootstrapToggle('on')
+                  }
+                  if({{RF}}){
+                    $('#RF').bootstrapToggle('on')
+                  }
+                  if({{L1}}){
+                    $('#L1').bootstrapToggle('on')
+                  }
+                  if({{L2}}){
+                    $('#L2').bootstrapToggle('on')
+                  }
+
+                  
+
+                    $('#AC,#RF,#GS,#L1,#L2').change(function() {
+                       let state1 = $(this).prop('checked');
+                       //alert( "First handler for .toggle() called." );
+                       let ID = this.id;
+                       
+                      //alert(this.id);
+                   
+                       $.ajax({
+                                type: "POST",
+                                url: "/slides",
+                                data: {'state':state1,'ID':ID}, 
+                                dataType: "json",
+                                success: function(){
+                                    //alert("Success"); 
+                                }
+                                });  
+
+                    
+                    })
+                })
+        </script>
+
+
+
+
+<!--/script src="js/script.js"></script-->
+</body>
+
+</html>

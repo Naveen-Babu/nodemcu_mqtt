@@ -1,0 +1,26 @@
+#card-header{
+    height: 200px;
+    background-color: #5C76DF
+}
+
+body{
+     /*background-color: #D6F0EB;*/
+     margin-left: 10px;
+     margin-right: 10px;
+     background-image: url('bg_2.jpeg');
+
+}
+
+#cards-row{
+    margin-top: 16px;
+}
+
+#data-card{
+   
+    margin-top: 16px;
+    margin-bottom: 5px
+   
+}
+.card{
+    width: 98%
+}

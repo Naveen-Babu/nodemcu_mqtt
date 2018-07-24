@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Page Title</title>
+  <link rel="stylesheet" href="../static/css/global.css">
+  <script src="../static/js/main.js"></script>
+</head>
+
+<body>
+
+  <!-- Start -->
+  <!-- widget navigation (already included as HEADER in serviceNow) -->
+  <nav class="navbar  navbar-default no-rounded mb-0" role="navigation">
+    <div class="container">
+      <div  class="navbar-header">
+        <a class="navbar-brand navbar-brand-logo"  href="">
+          <img alt="" src="/img/Allianz_Logo.png" />
+        </a>
+        <button type="button" class="navbar-toggle collapsed hamburger" data-toggle="collapse" data-target="#sp-nav-bar">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="navbar-text nav-title ">
+          <h4> Nodemcu project</h4> 
+        </div>
+      </div>
+      <div class="collapse navbar-collapse navbar-right" id="sp-nav-bar">
+
+
+  
+      </div></div>
+  </nav>
+  <!-- End -->
+
+
+  <!-- Start widget megaTitle-->
+  <div class="jumbotronCustom  mb-0  bg-light-grey">
+    <div class="container">
+      <h1 class="txt-15 text-rich_005">Sensor values</h1>
+      <!--h1 class="txt-15 text-rich_005">Welcome to the IT Service Portal</h1!!-->
+      <h1 class="txt-15 ml-5 pl-4 text-custom_001 lowercase"></h1>
+    </div>
+
+  </div>
+  <!-- End widget megaTitle-->
+
+  <!-- Start widget - -  4 bloc media element -->
+  <div class="bg-light-grey bg-light-grey gradientColor_001">
+    <div class="container aligned-row">
+      <!-- media widget 001 -->
+      <a href="" class="media col-xs-12 col-sm-6 col-md-3  text-center  bg-rich_007     ">
+        <div class="media-top">
+          <span class="fa fa-stack fa-2x">
+            <i class="fa fa-circle fa-opacity fa-stack-2x"></i>
+            <i id = "sen1" class="fa  fa-stack-1x "></i>
+          </span>
+        </div>
+        <div class="media-body">
+          <h3 class="media-heading">Temperature</h3>
+        </div>
+      </a>
+      <!-- media widget 002 -->
+
+      <a href="" class="media col-xs-12 col-sm-6 col-md-3  text-center  bg-rich_004 color-white   ">
+
+        <div class="media-top">
+          <span class="fa fa-stack fa-2x">
+            <i class="fa fa-circle fa-opacity fa-stack-2x  "></i>
+            <i id = "sen2" class="fa  fa-stack-1x "></i>
+          </span>
+        </div>
+        <div class="media-body">
+          <h3 class="media-heading">Humidity</h3>
+        </div>
+      </a>
+      <!-- media widget 003 -->
+
+      <a href="" class="media col-xs-12 col-sm-6 col-md-3  text-center  bg-rich_005 color-white   ">
+        <div class="media-top">
+          <span class="fa fa-stack fa-2x">
+            <i class="fa fa-circle fa-opacity fa-stack-2x"></i>
+            <i id = "sen3" class="fa  fa-stack-1x "></i>
+          </span>
+        </div>
+        <div class="media-body">
+          <h3 class="media-heading">Distance of an object</h3>
+        </div>
+      </a>
+      <!-- media widget 004 -->
+
+      <a href="" class="media col-xs-12 col-sm-6 col-md-3  text-center  bg-vbrnt_003 color-white   ">
+        <div class="media-top">
+          <span class="fa fa-stack fa-2x">
+            <i class="fa fa-circle fa-opacity fa-stack-2x"></i>
+            <i id = "sen4" class="fa  fa-stack-1x "></i>
+          </span>
+        </div>
+        <div class="media-body">
+          <h3 class="media-heading">Sensor Value</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+  <audio id="myAudio">
+      <source src="../static/alarm_beep.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+  </audio>
+
+
+
+
+  <script src = "../static/js/plugins/jquery.min.js"></script>
+     <script src = "../static/js/plugins/bootstrap.min.js"></script>
+     <script src = "../static/js/plugins/bootstrap-select.min.js"></script>
+  <script src = "../static/js/plugins/jquery.slimscroll.min.js"></script>
+     <script src = "../static/js/plugins/waves.min.js"></script>
+    <script src = "../static/js/plugins/jquery.countTo.min.js"></script>
+
+
+    <script src="../static/js/admin.js"></script>
+    <script src="../static/js/index.js"></script>
+
+
+  <script>
+
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+                    (function(){
+                        $.getJSON(
+                            $SCRIPT_ROOT+"/dummy", // Your AJAX route here
+                            function(data) {
+                                //console.log(data.tmp)
+                                //alert(data.tmp)
+                                document.getElementById("sen1").innerHTML = data.temp;
+                                document.getElementById("sen2").innerHTML = data.h;
+                                document.getElementById("sen3").innerHTML = data.d;
+                                document.getElementById("sen4").innerHTML = data.sv;
+
+                               /*var x = document.getElementById("myAudio");
+                                //alert(data.hb);
+                                if(parseInt(data.temp) >= data.tmp_th){
+                                    x.play();
+                                    alert("Temperature went above threshold");
+                                  }
+                                if(parseInt(data.hum) >= data.hum_th) {
+                                  x.play();
+                                    alert("Humidity went above threshold");
+                                } 
+                                if(parseInt(data.hb) >= data.hb_th) {
+                                  x.play();
+                                    alert("Heartbeat went above threshold");
+                                } 
+                                if(parseInt(data.gs) >= data.gs_th) {
+                                  x.play();
+                                    alert("Smoke crossed its threshold");
+                                }
+                                else{
+                                    x.pause();
+                                }*/
+                            }
+                        );
+                        setTimeout(arguments.callee, 2000);
+                    })();
+
+
+
+
+  </script>
+
+
+
+
+
+
+  <!--/footer-->
+
+
+
+  
+
+
+
+  <!-- END footer -->
+  <!-- START widget below footer   -->
+  <!--div-- class="   bg-light-grey txt-s2 p-3 ">
+    <div class="container  no-gutter">
+  
+      <div class="col-xs-6    ">
+        <strong> AGCS alllianz 2018</strong>
+      </div>
+      <div class="col-xs-6 text-right    ">
+        <strong>HTML/CSS pages - Version 2.0</strong>
+      </div>
+  
+    </div>
+  </div-->
+  <!-- END widget below footer   -->
+
+
+</body>
+
+</html>
